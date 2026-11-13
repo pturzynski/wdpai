@@ -3,6 +3,10 @@
 ## Cel projektu
 **SplitIt** — aplikacja webowa w PHP 8.3 i PostgreSQL dla znajomych i współlokatorów, którzy wspólnie ponoszą koszty (zakupy, rachunki, wyjazdy). Pozwala tworzyć grupy, dodawać wydatki wraz ze zdjęciem paragonu, dzielić kwoty między uczestników, wyliczać bieżące salda i oznaczać długi jako spłacone.
 
+## Warunek konieczny
+- Backend MUSI być obiektowy. 
+- Kod proceduralny wolno trzymać tylko w public/index.php i konfiguracji. Cała logika siedzi w klasach.
+
 ## Struktura
 - `public/index.php` — punkt wejścia aplikacji (Front Controller).
 - `public/views/` — widoki HTML z fragmentami PHP (`*.html.php`) oraz współdzielone komponenty (nawigacja, nagłówek, stopka).
@@ -17,7 +21,7 @@
 
 ## Zasady pracy
 - Zachowuj `declare(strict_types=1);` na początku każdego pliku PHP.
-- Nie dodawaj zewnętrznych frameworków ani bibliotek bez wyraźnej zgody.
+- Nie dodawaj zewnętrznych frameworków ani bibliotek bez wyraźnej zgody.  
 - Przestrzegaj podziału odpowiedzialności MVC:
   - kontroler obsługuje żądanie HTTP i koordynuje przepływ,
   - repozytorium zawiera zapytania SQL (zawsze parametryzowane przez `prepare()` / `execute()`),
@@ -35,3 +39,4 @@
 - Nie odczytuj ani nie commituj sekretów z pliku `.env` (w repozytorium znajduje się wyłącznie `.env.example`).
 - Nie wykonuj destrukcyjnych poleceń Git ani SQL bez potwierdzenia.
 - Nie edytuj ręcznie wygenerowanych plików w katalogu `vendor/`.
+- Jeśli wymaganie jest niejasne, zapytaj zamiast zgadywać.
